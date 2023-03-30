@@ -7,9 +7,9 @@
 
 using data_t = std::vector<int>;
 
-std::vector<int> generate_rand_data(size_t size);
-data_t generate_ascending_data(size_t size);
-data_t generate_descending_data(size_t size);
-data_t generate_same_value_data(size_t size, int value);
+std::vector<int> generate_random_data(size_t size);
+data_t generate_ascending_order_data(size_t size);
+data_t generate_descending_order_data(size_t size);
+data_t generate_constant_value_data(size_t size);
 
 #endif //LABB2_DATAGENERATE_H

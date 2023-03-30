@@ -11,12 +11,13 @@
 
 struct SortingResult{
     std::string algorithmName;
+    std::string dataPattern;
     size_t dataSize;
     double timeTaken;
     double standardDeviation;
-    int numberOfSamples;
-    explicit SortingResult(std::string algorithmName, size_t dataSize, double timeTaken, double standardDeviation, int numberOfSamples)
-            : algorithmName(std::move(algorithmName)), dataSize(dataSize), timeTaken(timeTaken), standardDeviation(standardDeviation), numberOfSamples(numberOfSamples) {};
+    int sampleCount;
+    SortingResult(const std::string& algorithmName, const std::string& dataPattern, size_t dataSize, double timeTaken, double standardDeviation, int sampleCount)
+            : algorithmName(algorithmName), dataPattern(dataPattern), dataSize(dataSize), timeTaken(timeTaken), standardDeviation(standardDeviation), sampleCount(sampleCount) {}
 };
 
 void saveSortingResults(const std::string& filename, const std::vector<SortingResult>& results);

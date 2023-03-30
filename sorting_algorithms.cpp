@@ -79,7 +79,6 @@ int partition_median_of_three(data_t& data, int low, int high){
 
 void quick_sort(data_t& data, int low, int high, PartitionFunc partition){
     if (low < high){
-        //int partitionIndex = partition_right(data, low, high);
         int partitionIndex = partition(data, low, high);
         quick_sort(data, low, partitionIndex - 1, partition);
         quick_sort(data, partitionIndex + 1, high, partition);

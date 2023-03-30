@@ -5,7 +5,9 @@
 #ifndef LABB2_SORTING_ALGORITHMS_H
 #define LABB2_SORTING_ALGORITHMS_H
 
-#include "datagenerate.h"
+#include <vector>
+using data_t = std::vector<int>;
+using PartitionFunc = int(*)(data_t&, int, int);
 
 void insertionSort(data_t &vector);
 void selectionSort(data_t &vector);

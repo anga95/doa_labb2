@@ -52,26 +52,8 @@ build CMakeFiles/labb2.dir/main.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/
   OBJECT_DIR = CMakeFiles/labb2.dir
   OBJECT_FILE_DIR = CMakeFiles/labb2.dir
 
-build CMakeFiles/labb2.dir/datagenerate.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/datagenerate.cpp || cmake_object_order_depends_target_labb2
-  DEP_FILE = CMakeFiles/labb2.dir/datagenerate.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
-  OBJECT_DIR = CMakeFiles/labb2.dir
-  OBJECT_FILE_DIR = CMakeFiles/labb2.dir
-
-build CMakeFiles/labb2.dir/insertionsort.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/insertionsort.cpp || cmake_object_order_depends_target_labb2
-  DEP_FILE = CMakeFiles/labb2.dir/insertionsort.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
-  OBJECT_DIR = CMakeFiles/labb2.dir
-  OBJECT_FILE_DIR = CMakeFiles/labb2.dir
-
-build CMakeFiles/labb2.dir/selectionsort.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/selectionsort.cpp || cmake_object_order_depends_target_labb2
-  DEP_FILE = CMakeFiles/labb2.dir/selectionsort.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
-  OBJECT_DIR = CMakeFiles/labb2.dir
-  OBJECT_FILE_DIR = CMakeFiles/labb2.dir
-
-build CMakeFiles/labb2.dir/quickSortRight.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/quickSortRight.cpp || cmake_object_order_depends_target_labb2
-  DEP_FILE = CMakeFiles/labb2.dir/quickSortRight.cpp.o.d
+build CMakeFiles/labb2.dir/data_generation.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/data_generation.cpp || cmake_object_order_depends_target_labb2
+  DEP_FILE = CMakeFiles/labb2.dir/data_generation.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
   OBJECT_DIR = CMakeFiles/labb2.dir
   OBJECT_FILE_DIR = CMakeFiles/labb2.dir
@@ -88,6 +70,18 @@ build CMakeFiles/labb2.dir/sorting_algorithms.cpp.o: CXX_COMPILER__labb2_Debug /
   OBJECT_DIR = CMakeFiles/labb2.dir
   OBJECT_FILE_DIR = CMakeFiles/labb2.dir
 
+build CMakeFiles/labb2.dir/timing_utils.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/timing_utils.cpp || cmake_object_order_depends_target_labb2
+  DEP_FILE = CMakeFiles/labb2.dir/timing_utils.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
+  OBJECT_DIR = CMakeFiles/labb2.dir
+  OBJECT_FILE_DIR = CMakeFiles/labb2.dir
+
+build CMakeFiles/labb2.dir/data_reporting.cpp.o: CXX_COMPILER__labb2_Debug /Users/andreas/Documents/MIUN/DoA/labb2/data_reporting.cpp || cmake_object_order_depends_target_labb2
+  DEP_FILE = CMakeFiles/labb2.dir/data_reporting.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++2b
+  OBJECT_DIR = CMakeFiles/labb2.dir
+  OBJECT_FILE_DIR = CMakeFiles/labb2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target labb2
@@ -96,7 +90,7 @@ build CMakeFiles/labb2.dir/sorting_algorithms.cpp.o: CXX_COMPILER__labb2_Debug /
 #############################################
 # Link the executable labb2
 
-build labb2: CXX_EXECUTABLE_LINKER__labb2_Debug CMakeFiles/labb2.dir/main.cpp.o CMakeFiles/labb2.dir/datagenerate.cpp.o CMakeFiles/labb2.dir/insertionsort.cpp.o CMakeFiles/labb2.dir/selectionsort.cpp.o CMakeFiles/labb2.dir/quickSortRight.cpp.o CMakeFiles/labb2.dir/sorting_utils.cpp.o CMakeFiles/labb2.dir/sorting_algorithms.cpp.o
+build labb2: CXX_EXECUTABLE_LINKER__labb2_Debug CMakeFiles/labb2.dir/main.cpp.o CMakeFiles/labb2.dir/data_generation.cpp.o CMakeFiles/labb2.dir/sorting_utils.cpp.o CMakeFiles/labb2.dir/sorting_algorithms.cpp.o CMakeFiles/labb2.dir/timing_utils.cpp.o CMakeFiles/labb2.dir/data_reporting.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk
   OBJECT_DIR = CMakeFiles/labb2.dir
   POST_BUILD = :

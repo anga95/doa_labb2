@@ -3,7 +3,7 @@
 //
 
 #include "sorting_utils.h"
-#include "sorting.h"
+#include "sorting_algorithms.h"
 #include <iostream>
 
 
@@ -36,7 +36,7 @@ void runQuickSortMedianOfThreePivot(data_t &vec){
     std::cout << std::endl;
 }
 
-void runAllSortings(data_t &vec){
+void runAllSortFunctions(data_t &vec){
     data_t is = vec;
     data_t ss = vec;
     data_t qsr = vec;

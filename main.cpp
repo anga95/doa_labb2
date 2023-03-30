@@ -1,20 +1,38 @@
 #include <iostream>
-#include "datagenerate.h"
-#include "sorting.h"
+#include <numeric>
+#include "data_generation.h"
 #include "sorting_utils.h"
+#include "timing_utils.h"
+#include "data_reporting.h"
+#include "sorting_algorithms.h"
 
 int main() {
     std::srand(std::time(nullptr));
-    size_t size = 100;
-    data_t femtal = {3, 1, 4, 2, 5};
-    data_t random = generate_rand_data(size);
-    data_t ascending = generate_ascending_data(size);
-    data_t descending = generate_descending_data(size);
-    data_t consValue = generate_const_value_data(size, 3);
+    size_t dataSize = 100;
+    int sampleCount = 5;
+    data_t randomValues = generate_rand_data(dataSize);
+    data_t ascendingValues = generate_ascending_data(dataSize);
+    data_t descendingValues = generate_descending_data(dataSize);
+    data_t sameValues = generate_same_value_data(dataSize, 3);
+    std::vector<SortingResult> results;
 
-    runAllSortings(random);
 
-    std::cout <<std::endl<< "Hello, World!" << std::endl;
+    std::vector<double> samplesForStdDev;
+    for (int i = 0; i < sampleCount; i++) {
+        double timeTakenInsertionSort = measureSortingTime(insertionSort, randomValues);
+        samplesForStdDev.push_back(timeTakenInsertionSort);
+    }
+
+    double averageTimeInsertionSort = std::accumulate(samplesForStdDev.begin(), samplesForStdDev.end(), 0.0) / sampleCount;
+    double standardDeviationInsertionSort = calculateStandardDeviation(samplesForStdDev);
+
+    results.emplace_back("insertionSort", dataSize, averageTimeInsertionSort, standardDeviationInsertionSort, sampleCount);
+
+    printSortingResults(results);
+
+    std::string outPutFileName = "sorting_results.csv";
+    saveSortingResults(outPutFileName, results);
+
     return 0;
 }
 

@@ -7,13 +7,9 @@
 
 using data_t = std::vector<int>;
 
-struct time_measurement{
-    double time;
-};
-
 std::vector<int> generate_rand_data(size_t size);
 data_t generate_ascending_data(size_t size);
 data_t generate_descending_data(size_t size);
-data_t generate_const_value_data(size_t size, int value);
+data_t generate_same_value_data(size_t size, int value);
 
 #endif //LABB2_DATAGENERATE_H

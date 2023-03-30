@@ -1,0 +1,3 @@
+/Users/andreas/Documents/MIUN/DoA/labb2/cmake-build-debug/CMakeFiles/labb2.dir
+/Users/andreas/Documents/MIUN/DoA/labb2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/andreas/Documents/MIUN/DoA/labb2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

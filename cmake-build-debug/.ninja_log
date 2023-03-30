@@ -1,0 +1,9 @@
+# ninja log v5
+4	202	1680186618227009358	CMakeFiles/labb2.dir/selectionsort.cpp.o	b669b05ab5dab1d2
+3	200	1680186618225128587	CMakeFiles/labb2.dir/insertionsort.cpp.o	ed0ba4740fd86d3a
+0	50	1680187302275941579	build.ninja	2c5bf6d85f5595e
+3	278	1680187038791185087	CMakeFiles/labb2.dir/sorting_utils.cpp.o	fd3a8b9785c19a78
+3	277	1680187038789789718	CMakeFiles/labb2.dir/main.cpp.o	3381e12e487ffa22
+3	1890	1680184905838358021	CMakeFiles/labb2.dir/datagenerate.cpp.o	f81df5e8c6725d72
+3	194	1680186665358656411	CMakeFiles/labb2.dir/quickSortRight.cpp.o	dae00e1165554fb1
+278	314	1680187038828303963	labb2	be54d3f80ab58876

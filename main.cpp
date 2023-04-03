@@ -1,5 +1,6 @@
 #include <iostream>
 #include <numeric>
+#include <sstream>
 #include "data_generation.h"
 #include "sorting_utils.h"
 #include "timing_utils.h"
@@ -17,25 +18,25 @@ int main() {
             {"QuickSortMedianOfThree", [&](data_t &data){quick_sort(data, 0, data.size() - 1, partition_median_of_three);}}
     };
 
+    int dataSizeStart = 10'000;
+    int dataSizeEnd = 100'000;
+    int dataSizeStep = 10'000;
+
+    std::vector<std::pair<std::string, data_t>> maxDataVariants = {
+            {"random", generate_random_data(dataSizeEnd)},
+            {"ascending", generate_ascending_order_data(dataSizeEnd)},
+            {"descending", generate_descending_order_data(dataSizeEnd)},
+            {"constant", generate_constant_value_data(dataSizeEnd)}
+    };
+
     std::vector<SortingResult> results;
-    int dataSizeStart = 20000;
-    int dataSizeEnd = 200000;
-    int dataSizeStep = 20000;
 
     for (const auto& sortAlgorithm : sortingAlgorithms) {
-        for (int dataSize = dataSizeStart; dataSize <= dataSizeEnd ; dataSize += dataSizeStep) {
-            std::vector<std::pair<std::string, data_t>> dataVariants = {
-                    {"random",     generate_random_data(dataSize)},
-                    {"ascending",  generate_ascending_order_data(dataSize)},
-                    {"descending", generate_descending_order_data(dataSize)},
-                    {"constant",       generate_constant_value_data(dataSize)}
-            };
-
-
-            for (const auto& dataVariants : dataVariants) {
+        for (int dataSize = dataSizeStart; dataSize <= dataSizeEnd; dataSize += dataSizeStep) {
+            for (const auto& maxDataVariant : maxDataVariants) {
                 std::vector<double> samplesForStdDev;
                 for (int i = 0; i < sampleCount; i++) {
-                    data_t dataCopy = dataVariants.second;
+                    data_t dataCopy(maxDataVariant.second.begin(), maxDataVariant.second.begin() + dataSize);
                     double timeTaken = measureSortingTime(sortAlgorithm.second, dataCopy);
                     samplesForStdDev.push_back(timeTaken);
                 }
@@ -43,41 +44,20 @@ int main() {
                 double averageTime = std::accumulate(samplesForStdDev.begin(), samplesForStdDev.end(), 0.0) / sampleCount;
                 double standardDeviation = calculateStandardDeviation(samplesForStdDev);
 
-                results.emplace_back(sortAlgorithm.first, dataVariants.first, dataSize, averageTime, standardDeviation, sampleCount);
+                results.emplace_back(sortAlgorithm.first, maxDataVariant.first, dataSize, averageTime, standardDeviation, sampleCount);
+                std::cout << "Completed: Algorithm: " << sortAlgorithm.first << ", Data Variant: " << maxDataVariant.first << ", Size: " << dataSize << std::endl;
             }
         }
     }
 
-
     printSortingResults(results);
-    std::string outPutFileName = "sorting_results.csv";
+    auto now = std::chrono::system_clock::now();
+    auto timestamp = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
+    std::ostringstream outPutFileNameStream;
+    outPutFileNameStream << "sorting_results_" << timestamp << ".csv";
+    std::string outPutFileName = outPutFileNameStream.str();
+    //std::string outPutFileName = "sorting_results_200k.csv";
     saveSortingResults(outPutFileName, results);
 
     return 0;
 }
-
-
-
-
-// insertion sort
-// https://en.wikipedia.org/wiki/Insertion_sort#List_insertion_sort_code_in_C
-//
-//
-/*
-set terminal pdf font ’cmr ’
-set output ’image.pdf’
-#set size 1,2
-set key box
-#set samples 50, 50
-#set style data lines
-set title _"Selection sort -- random series"
-set xlabel "N elements"
-set ylabel "t [{/Symbol m}s]"
- x = 0.0
-
-plot "sel_sort.dat" title "Random input" with errorbars,
-    "fit.dat" smooth csplines t "Fit k N^2"
-#close output file
-set output
-set terminal pop
- */

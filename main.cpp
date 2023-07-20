@@ -1,6 +1,7 @@
 #include <iostream>
 #include <numeric>
 #include <sstream>
+#include <iomanip>
 #include "data_generation.h"
 #include "sorting_utils.h"
 #include "timing_utils.h"
@@ -15,12 +16,13 @@ int main() {
             {"InsertionSort", insertionSort},
             {"SelectionSort", selectionSort},
             {"QuickSortRightPivot", [&](data_t &data){quick_sort(data, 0, data.size() - 1, partition_right);}},
-            {"QuickSortMedianOfThree", [&](data_t &data){quick_sort(data, 0, data.size() - 1, partition_median_of_three);}}
+            {"QuickSortMedianOfThree", [&](data_t &data){quick_sort(data, 0, data.size() - 1, partition_median_of_three);}},
+            {"std::sort", [](data_t &data){std::sort(data.begin(), data.end());}}
     };
 
-    int dataSizeStart = 10'000;
-    int dataSizeEnd = 100'000;
-    int dataSizeStep = 10'000;
+    int dataSizeStart = 20'000;
+    int dataSizeEnd = 200'000;
+    int dataSizeStep = 20'000;
 
     std::vector<std::pair<std::string, data_t>> maxDataVariants = {
             {"random", generate_random_data(dataSizeEnd)},
@@ -52,12 +54,16 @@ int main() {
 
     printSortingResults(results);
     auto now = std::chrono::system_clock::now();
-    auto timestamp = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
-    std::ostringstream outPutFileNameStream;
-    outPutFileNameStream << "sorting_results_" << timestamp << ".csv";
-    std::string outPutFileName = outPutFileNameStream.str();
-    //std::string outPutFileName = "sorting_results_200k.csv";
-    saveSortingResults(outPutFileName, results);
+    auto now_time_t = std::chrono::system_clock::to_time_t(now);
+    std::tm now_tm = *std::localtime(&now_time_t);
 
+    std::ostringstream outPutFileNameStream;
+    outPutFileNameStream << "sorting_results_"
+                         << std::put_time(&now_tm, "%Y-%m-%d_%H-%M-%S")
+                         << ".csv";
+    std::string outPutFileName = outPutFileNameStream.str();
+
+    saveSortingResults(outPutFileName, results);
+    std::system("afplay /System/Library/Sounds/Submarine.aiff -v 10;");
     return 0;
 }

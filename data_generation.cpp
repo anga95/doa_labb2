@@ -5,6 +5,7 @@
 #include "data_generation.h"
 #include <algorithm>
 
+
 data_t generate_random_data(size_t size){
     data_t vector;
     for (size_t value = 0; value < size; value++) {

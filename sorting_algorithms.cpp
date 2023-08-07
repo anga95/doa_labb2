@@ -5,30 +5,30 @@
 #include "sorting_algorithms.h"
 
 void insertionSort(data_t &vector){
-    int next = 1;
-    while( next < vector.size()){
-        int current = vector[next];
-        int previous = next - 1;
-        while (previous >= 0 && vector[previous] > current){
-            vector[previous+1] = vector[previous];
-            previous = previous - 1;
+    int nextPosition = 1;
+    while(nextPosition < vector.size()){
+        int valueToInsert = vector[nextPosition];
+        int sortedPosition = nextPosition - 1;
+        while (sortedPosition >= 0 && vector[sortedPosition] > valueToInsert){
+            vector[sortedPosition + 1] = vector[sortedPosition];
+            sortedPosition = sortedPosition - 1;
         }
-        vector[previous + 1] = current;
-        next++;
+        vector[sortedPosition + 1] = valueToInsert;
+        nextPosition++;
     }
 }
 void selectionSort(data_t &vector){
-    for (int current = 0; current < vector.size()-1; ++current) {
-        int minValue = current;
+    for (int currentPosition = 0; currentPosition < vector.size() - 1; ++currentPosition) {
+        int minValuePosition = currentPosition;
 
-        for (int next = current + 1; next < vector.size(); next++) {
-            if (vector[next] < vector[minValue]) {
-                minValue = next;
+        for (int nextPosition = currentPosition + 1; nextPosition < vector.size(); nextPosition++) {
+            if (vector[nextPosition] < vector[minValuePosition]) {
+                minValuePosition = nextPosition;
             }
         }
 
-        if (minValue != current){
-            std::swap(vector[minValue], vector[current]);
+        if (minValuePosition != currentPosition){
+            std::swap(vector[minValuePosition], vector[currentPosition]);
         }
     }
 }
@@ -47,13 +47,6 @@ int partition_right(data_t& data, int low, int high){
     return (index + 1);
 }
 
-
-
-// This function takes last element as pivot, places
-// the pivot element at its correct position in sorted
-// array, and places all smaller (smaller than pivot)
-// to left of pivot and all greater elements to right
-// of pivot
 int partition_median_of_three(data_t& data, int low, int high){
     int mid = low + (high-low)/2;
     if (data[low] > data[high]){ std::swap(data[low], data[high]);}
@@ -76,6 +69,7 @@ int partition_median_of_three(data_t& data, int low, int high){
 
     return index-1;
 }
+
 
 void quick_sort(data_t& data, int low, int high, PartitionFunc partition){
     if (low < high){

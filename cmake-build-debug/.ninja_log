@@ -1,10 +1,14 @@
 # ninja log v5
-1	248	1680465399119605323	CMakeFiles/labb2.dir/sorting_algorithms.cpp.o	77ae9f3c80036845
-8	910	1680966794054456853	CMakeFiles/labb2.dir/main.cpp.o	cc44eccd5caad60e
-1	417	1680465399289453234	CMakeFiles/labb2.dir/sorting_utils.cpp.o	19b1bc48505ea5d6
-910	964	1680966794112689470	labb2	4508579fc3bd8fb0
-1	289	1680465399161353948	CMakeFiles/labb2.dir/data_generation.cpp.o	e1348d23d57ad4ab
-2	289	1680465399160774582	CMakeFiles/labb2.dir/timing_utils.cpp.o	196cf6cd3df3ce63
+40	2903	1689948917253500016	CMakeFiles/labb2.dir/data_reporting.cpp.o	575f0b43fdb73f4
+0	50	1691150596032529379	build.ninja	2c5bf6d85f5595e
 0	6	0	clean	5fa735252b597dc6
-0	50	1685360856092380060	build.ninja	2c5bf6d85f5595e
-2	437	1680465399309823450	CMakeFiles/labb2.dir/data_reporting.cpp.o	f05d9694ab1d4353
+39	2661	1689948917011568382	CMakeFiles/labb2.dir/timing_utils.cpp.o	a8d4253115575325
+39	2645	1689948916995633512	CMakeFiles/labb2.dir/data_generation.cpp.o	e524d822ffd302e6
+3140	4588	1689948918939472832	labb2	25a3371f8e30d980
+39	2843	1689948917193471492	CMakeFiles/labb2.dir/sorting_utils.cpp.o	96c3a904dea21d9e
+39	3140	1689948917489818818	CMakeFiles/labb2.dir/main.cpp.o	4466647b926ac094
+39	2624	1689948916967665062	CMakeFiles/labb2.dir/sorting_algorithms.cpp.o	8219a700c36908a4
+1	57	1691150596032529379	build.ninja	e7da59fec4520511
+29	337	1691150596377178881	CMakeFiles/labb2.dir/sorting_algorithms.cpp.o	2accd9445dc9e8d9
+28	435	1691150596474490668	CMakeFiles/labb2.dir/data_generation.cpp.o	c4641c82ab6a6379
+30	594	1691150596633306093	CMakeFiles/labb2.dir/data_reporting.cpp.o	357a591ccf02ddb3

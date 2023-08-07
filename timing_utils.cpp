@@ -5,6 +5,12 @@
 #include <numeric>
 #include "timing_utils.h"
 
+/**
+ * Measures the time it takes to sort a vector
+ * @param sortingFunc the sorting function to use
+ * @param data the data to sort
+ * @return the time it took to sort the vector
+ */
 double measureSortingTime(const std::function<void (data_t&)>& sortingFunc, data_t &data){
     auto start = std::chrono::high_resolution_clock::now();
     sortingFunc(data);

@@ -2,6 +2,7 @@
 #include <numeric>
 #include <sstream>
 #include <iomanip>
+#include <functional>
 #include "data_generation.h"
 #include "sorting_utils.h"
 #include "timing_utils.h"
@@ -20,9 +21,9 @@ int main() {
             {"std::sort", [](data_t &data){std::sort(data.begin(), data.end());}}
     };
 
-    int dataSizeStart = 20'000;
-    int dataSizeEnd = 200'000;
-    int dataSizeStep = 20'000;
+    int dataSizeStart = 10'000;
+    int dataSizeEnd = 100'000;
+    int dataSizeStep = 10'000;
 
     std::vector<std::pair<std::string, data_t>> maxDataVariants = {
             {"random", generate_random_data(dataSizeEnd)},

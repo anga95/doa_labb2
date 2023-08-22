@@ -45,7 +45,7 @@ int main() {
                 }
 
                 double averageTime = std::accumulate(samplesForStdDev.begin(), samplesForStdDev.end(), 0.0) / sampleCount;
-                double standardDeviation = calculateStandardDeviation(samplesForStdDev);
+                double standardDeviation = calculaxteStandardDeviation(samplesForStdDev);
 
                 results.emplace_back(sortAlgorithm.first, maxDataVariant.first, dataSize, averageTime, standardDeviation, sampleCount);
                 std::cout << "Completed: Algorithm: " << sortAlgorithm.first << ", Data Variant: " << maxDataVariant.first << ", Size: " << dataSize << std::endl;
